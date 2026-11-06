@@ -1,0 +1,30 @@
+BOOT
+bus_V=0.0037 shunt_mV=0.005 curr_mA=0.050 power_mW=0.000 curr_A=0.000050 power_W=0.000000 ovf=0 i2c_err=0
+bus_V=0.0037 shunt_mV=-0.013 curr_mA=-0.125 power_mW=0.000 curr_A=-0.000125 power_W=0.000000 ovf=0 i2c_err=0
+bus_V=0.0037 shunt_mV=0.002 curr_mA=0.025 power_mW=0.000 curr_A=0.000025 power_W=0.000000 ovf=0 i2c_err=0
+
+SCAN
+I2C scan (Wire):
+  0x40 ACK
+  0x60 ACK
+
+INFO
+INA ok=1 addr=0x40 shunt=0.100 Imax=0.8192 avg=16 conv_us=1100 SI5351 ok=0
+
+READ
+bus_V=0.0037 shunt_mV=0.000 curr_mA=0.000 power_mW=0.000 curr_A=0.000000 power_W=0.000000 ovf=0 i2c_err=0
+
+SI
+Si5351: OK (init)
+Si5351 SYS_INIT=0 LOL_A=0 LOL_B=0 LOS=0 REVID=1
+
+SCAN2
+I2C scan (Wire):
+  0x40 ACK
+  0x60 ACK
+
+READ3
+bus_V=0.0037 shunt_mV=-0.015 curr_mA=-0.150 power_mW=0.000 curr_A=-0.000150 power_W=0.000000 ovf=0 i2c_err=0
+
+INFO2
+INA ok=1 addr=0x40 shunt=0.100 Imax=0.8192 avg=16 conv_us=1100 SI5351 ok=1
