@@ -159,6 +159,11 @@ bool adsSamplerNext(int16_t* out) {
     return true;
 }
 
+void adsSamplerFlush() {
+    const uint16_t head = gSampleHead;
+    gSampleTail = head;
+}
+
 void adsSamplerPrintMicrovolts() {
     while (gSampleTail != gSampleHead) {
         const int16_t sample = gSampleRing[gSampleTail];

@@ -9,4 +9,5 @@ bool adsSamplerBegin();
 void adsSamplerStart();
 bool adsSamplerNewest(int16_t* sample);
 bool adsSamplerNext(int16_t* out);  // drain one sample from the ring; returns false when empty
+void adsSamplerFlush();             // drop samples already queued
 void adsSamplerPrintMicrovolts();

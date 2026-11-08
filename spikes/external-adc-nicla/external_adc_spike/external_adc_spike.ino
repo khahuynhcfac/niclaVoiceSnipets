@@ -3,6 +3,7 @@
 // interrupt, so loop() cannot move the interval.
 // Do not call Wire after adsSamplerStart().
 // J2 LPIO3 is Arduino pin 0 (P0_10). Wire is SDA pin 4 (P0_22), SCL pin 3 (P0_23).
+// J1 LPIO0_EXT is Arduino pin 5 (P0_24): NMOS gate, HIGH disables the harvester.
 
 #include "AdsAdvert.h"
 #include "AdsSampler.h"
@@ -12,7 +13,9 @@
 #define SERIAL_BAUD 115200
 
 void setup() {
-    if (!adsSamplerBegin()) {
+    const bool adsReady = adsSamplerBegin();
+    capPowerBegin();
+    if (!adsReady) {
         Serial.begin(SERIAL_BAUD);
         Serial.println("ADS1115 not ready");
         return;
@@ -31,6 +34,7 @@ void loop() {
         Serial.println(countsToUv(sample));
         if (capPowerFeed(sample)) {
             adsAdvertSend(capPowerGet_uW());
+            capPowerRearm();
         }
     }
 }
